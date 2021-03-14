@@ -7,8 +7,15 @@
 
 import Cocoa
 import AVFoundation
+import CannyEdgeDetectorKit
 
-class LiveViewController: NSViewController {
+class LiveViewController: NSViewController, CannyEdgeDetectorDelegate {
+    func ouputHandler(image: CGImage) {
+        DispatchQueue.main.async {
+            self.liveView.image = image
+        }
+    }
+    
     @IBOutlet var deviceList: NSPopUpButton!
     @IBOutlet var resolutionList: NSPopUpButton!
     @IBOutlet var frameRateSlider: NSSlider!
@@ -23,6 +30,7 @@ class LiveViewController: NSViewController {
     var formats: [AVCaptureDevice.Format]!
     var controlsToToggle: [NSControl]!
     var timerConsumser: TimerConsumer!
+    var cannyEdgeDetector: CannyEdgeDetector!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +39,9 @@ class LiveViewController: NSViewController {
         self.timerConsumser = TimerConsumer()
         self.timerConsumser.liveView = self.liveView
         print(self.liveView.frame)
+        
+        self.cannyEdgeDetector = CannyEdgeDetector(strategy: AccelerateDetectorV2())
+        self.cannyEdgeDetector.delegate = self
         
         self.discoverAvailableDevices()
         self.checkForAutorization()
@@ -66,7 +77,7 @@ class LiveViewController: NSViewController {
         outputDevice.alwaysDiscardsLateVideoFrames = false
         outputDevice.videoSettings = [String(kCVPixelBufferPixelFormatTypeKey): self.outputPixelFormat]
         let queue = DispatchQueue(label: "time cos")
-        outputDevice.setSampleBufferDelegate(self.timerConsumser, queue: queue)
+        outputDevice.setSampleBufferDelegate(self.cannyEdgeDetector, queue: queue)
         
         if self.captureSession.canAddOutput(outputDevice){
             self.captureSession.addOutput(outputDevice)
