@@ -14,9 +14,18 @@ class LiveView: NSView, CALayerDelegate{
         }
     }
     
+    var mirrorTransformation: CATransform3D!
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.layer?.delegate = self
+        self.postsFrameChangedNotifications = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.frameDidChange), name: NSView.frameDidChangeNotification, object: nil)
+    }
+    
+    @objc func frameDidChange(){
+        self.layer?.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: -1.0, b: 0.0, c: 0.0, d: 1.0, tx: self.frame.width, ty: 0.0))
     }
     
     override func draw(_ dirtyRect: NSRect) {
@@ -25,7 +34,6 @@ class LiveView: NSView, CALayerDelegate{
     
     func display(_ layer: CALayer) {
         guard let image = self.image else {return}
-        layer.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: -1.0, b: 0.0, c: 0.0, d: 1.0, tx: layer.frame.width, ty: 0.0))
         layer.contents = image
     }
 }

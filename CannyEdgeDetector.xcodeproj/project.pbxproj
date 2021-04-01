@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D203CA39260789FC00AA0545 /* Threshold.swift in Sources */ = {isa = PBXBuildFile; fileRef = D203CA38260789FC00AA0545 /* Threshold.swift */; };
+		D203CA552607C47500AA0545 /* MetalDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D203CA542607C47500AA0545 /* MetalDetector.swift */; };
 		D22B24EC25D1D48900B4C744 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B24EB25D1D48900B4C744 /* AppDelegate.swift */; };
 		D22B24EE25D1D48900B4C744 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B24ED25D1D48900B4C744 /* ViewController.swift */; };
 		D22B24F025D1D48A00B4C744 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D22B24EF25D1D48A00B4C744 /* Assets.xcassets */; };
@@ -22,10 +24,15 @@
 		D23CD20525FCCCB50082CE04 /* AccelerateDetectorV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23CD20425FCCCB50082CE04 /* AccelerateDetectorV2.swift */; };
 		D23CD20925FCD8D30082CE04 /* BoxFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23CD20825FCD8D30082CE04 /* BoxFilter.swift */; };
 		D23CD20F25FE52860082CE04 /* CannyEdgeDetectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23CD20E25FE52860082CE04 /* CannyEdgeDetectorDelegate.swift */; };
+		D240FCBE260659CB008779DF /* NonMaxSuppression.swift in Sources */ = {isa = PBXBuildFile; fileRef = D240FCBD260659CB008779DF /* NonMaxSuppression.swift */; };
+		D26BF20A260BDC6C00D4CFA8 /* CaptureDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26BF209260BDC6C00D4CFA8 /* CaptureDeviceViewController.swift */; };
+		D26BF20E260BDD1200D4CFA8 /* CaptureDeviceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26BF20D260BDD1200D4CFA8 /* CaptureDeviceController.swift */; };
+		D26BF212260E2C0D00D4CFA8 /* Hypot.metal in Sources */ = {isa = PBXBuildFile; fileRef = D26BF211260E2C0D00D4CFA8 /* Hypot.metal */; };
 		D26E0BDA25E1864100883294 /* BoxFilterStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26E0BD925E1864100883294 /* BoxFilterStep.swift */; };
 		D26E0BDE25E18A1700883294 /* GradientStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26E0BDD25E18A1700883294 /* GradientStep.swift */; };
 		D26E0BE625E2BFFB00883294 /* NonMaxSuppressionStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26E0BE525E2BFFB00883294 /* NonMaxSuppressionStep.swift */; };
 		D271043625F52BDC00F32DB1 /* CMDimensionsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D271043525F52BDC00F32DB1 /* CMDimensionsExtension.swift */; };
+		D27878FC25FE9A530014BC01 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27878FB25FE9A530014BC01 /* Gradient.swift */; };
 		D28BE5DF25E176980024969B /* GrayscaleConverterStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28BE5DE25E176980024969B /* GrayscaleConverterStep.swift */; };
 		D28BE5EA25E1806E0024969B /* CannyEdgeDetectorKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22B250025D1D4AA00B4C744 /* CannyEdgeDetectorKit.framework */; };
 		D28BE5F325E1809B0024969B /* GrayscaleConverterStepTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28BE5F225E1809B0024969B /* GrayscaleConverterStepTest.swift */; };
@@ -75,6 +82,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D203CA38260789FC00AA0545 /* Threshold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Threshold.swift; sourceTree = "<group>"; };
+		D203CA542607C47500AA0545 /* MetalDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalDetector.swift; sourceTree = "<group>"; };
 		D22B24DD25D1CDC200B4C744 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		D22B24E125D1CE0F00B4C744 /* CGDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGDetector.swift; sourceTree = "<group>"; };
 		D22B24E925D1D48900B4C744 /* CannyViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CannyViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,10 +102,15 @@
 		D23CD20425FCCCB50082CE04 /* AccelerateDetectorV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelerateDetectorV2.swift; sourceTree = "<group>"; };
 		D23CD20825FCD8D30082CE04 /* BoxFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxFilter.swift; sourceTree = "<group>"; };
 		D23CD20E25FE52860082CE04 /* CannyEdgeDetectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CannyEdgeDetectorDelegate.swift; sourceTree = "<group>"; };
+		D240FCBD260659CB008779DF /* NonMaxSuppression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonMaxSuppression.swift; sourceTree = "<group>"; };
+		D26BF209260BDC6C00D4CFA8 /* CaptureDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureDeviceViewController.swift; sourceTree = "<group>"; };
+		D26BF20D260BDD1200D4CFA8 /* CaptureDeviceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureDeviceController.swift; sourceTree = "<group>"; };
+		D26BF211260E2C0D00D4CFA8 /* Hypot.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Hypot.metal; sourceTree = "<group>"; };
 		D26E0BD925E1864100883294 /* BoxFilterStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxFilterStep.swift; sourceTree = "<group>"; };
 		D26E0BDD25E18A1700883294 /* GradientStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientStep.swift; sourceTree = "<group>"; };
 		D26E0BE525E2BFFB00883294 /* NonMaxSuppressionStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonMaxSuppressionStep.swift; sourceTree = "<group>"; };
 		D271043525F52BDC00F32DB1 /* CMDimensionsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMDimensionsExtension.swift; sourceTree = "<group>"; };
+		D27878FB25FE9A530014BC01 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		D28BE5DE25E176980024969B /* GrayscaleConverterStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayscaleConverterStep.swift; sourceTree = "<group>"; };
 		D28BE5E525E1806E0024969B /* CannyEdgeDetectorKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CannyEdgeDetectorKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D28BE5E925E1806E0024969B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -142,6 +156,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D203CA522607C42600AA0545 /* Accelerate */ = {
+			isa = PBXGroup;
+			children = (
+				D23CD20425FCCCB50082CE04 /* AccelerateDetectorV2.swift */,
+				D23CD20825FCD8D30082CE04 /* BoxFilter.swift */,
+				D27878FB25FE9A530014BC01 /* Gradient.swift */,
+				D240FCBD260659CB008779DF /* NonMaxSuppression.swift */,
+				D2F47A2D25EC18D80019B944 /* TemporaryBuffer.swift */,
+				D203CA38260789FC00AA0545 /* Threshold.swift */,
+				D29C61DC25EBA4EB00D94B0F /* VImageBufferWrapper.swift */,
+			);
+			path = Accelerate;
+			sourceTree = "<group>";
+		};
+		D203CA532607C46000AA0545 /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				D203CA542607C47500AA0545 /* MetalDetector.swift */,
+				D26BF211260E2C0D00D4CFA8 /* Hypot.metal */,
+			);
+			path = Metal;
+			sourceTree = "<group>";
+		};
 		D22B24C925D1CD9700B4C744 = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +212,8 @@
 				D271043525F52BDC00F32DB1 /* CMDimensionsExtension.swift */,
 				D2AC812A25F5378300B4CA67 /* TimerConsumer.swift */,
 				D231A0D525F817B800526A49 /* LiveView.swift */,
+				D26BF209260BDC6C00D4CFA8 /* CaptureDeviceViewController.swift */,
+				D26BF20D260BDD1200D4CFA8 /* CaptureDeviceController.swift */,
 			);
 			path = CannyViewer;
 			sourceTree = "<group>";
@@ -182,28 +221,34 @@
 		D22B250125D1D4AA00B4C744 /* CannyEdgeDetectorKit */ = {
 			isa = PBXGroup;
 			children = (
-				D2C2B60F25DD9B4000485F07 /* AccelerateDetector.swift */,
-				D23CD20425FCCCB50082CE04 /* AccelerateDetectorV2.swift */,
-				D23CD20825FCD8D30082CE04 /* BoxFilter.swift */,
-				D26E0BD925E1864100883294 /* BoxFilterStep.swift */,
+				D203CA532607C46000AA0545 /* Metal */,
+				D203CA522607C42600AA0545 /* Accelerate */,
 				D23CD1FC25FCC8A80082CE04 /* CannyEdgeDetector.swift */,
 				D23CD20E25FE52860082CE04 /* CannyEdgeDetectorDelegate.swift */,
 				D22B250225D1D4AA00B4C744 /* CannyEdgeDetectorKit.h */,
-				D22B24E125D1CE0F00B4C744 /* CGDetector.swift */,
-				D2C2B60C25DB0F1000485F07 /* Detector.swift */,
 				D23CD20025FCC9FE0082CE04 /* DetectorStrategy.swift */,
-				D26E0BDD25E18A1700883294 /* GradientStep.swift */,
-				D28BE5DE25E176980024969B /* GrayscaleConverterStep.swift */,
-				D22B24DD25D1CDC200B4C744 /* Image.swift */,
 				D22B250325D1D4AA00B4C744 /* Info.plist */,
-				D26E0BE525E2BFFB00883294 /* NonMaxSuppressionStep.swift */,
+				D23CD21225FE5BCE0082CE04 /* Old */,
 				D2F47A2825EC11580019B944 /* Operations */,
 				D2C4BCC225E1734400F1EDEE /* Pipeline */,
-				D2F47A2D25EC18D80019B944 /* TemporaryBuffer.swift */,
 				D2C2B60925DB0EFE00485F07 /* VIDetector.swift */,
-				D29C61DC25EBA4EB00D94B0F /* VImageBufferWrapper.swift */,
 			);
 			path = CannyEdgeDetectorKit;
+			sourceTree = "<group>";
+		};
+		D23CD21225FE5BCE0082CE04 /* Old */ = {
+			isa = PBXGroup;
+			children = (
+				D2C2B60F25DD9B4000485F07 /* AccelerateDetector.swift */,
+				D22B24E125D1CE0F00B4C744 /* CGDetector.swift */,
+				D22B24DD25D1CDC200B4C744 /* Image.swift */,
+				D26E0BE525E2BFFB00883294 /* NonMaxSuppressionStep.swift */,
+				D26E0BD925E1864100883294 /* BoxFilterStep.swift */,
+				D28BE5DE25E176980024969B /* GrayscaleConverterStep.swift */,
+				D26E0BDD25E18A1700883294 /* GradientStep.swift */,
+				D2C2B60C25DB0F1000485F07 /* Detector.swift */,
+			);
+			path = Old;
 			sourceTree = "<group>";
 		};
 		D28BE5E625E1806E0024969B /* CannyEdgeDetectorKitTests */ = {
@@ -383,12 +428,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D26BF20E260BDD1200D4CFA8 /* CaptureDeviceController.swift in Sources */,
 				D231A0D625F817B800526A49 /* LiveView.swift in Sources */,
 				D271043625F52BDC00F32DB1 /* CMDimensionsExtension.swift in Sources */,
 				D22B24EE25D1D48900B4C744 /* ViewController.swift in Sources */,
 				D2AC812B25F5378300B4CA67 /* TimerConsumer.swift in Sources */,
 				D2F47A3225EC1B4C0019B944 /* LiveViewController.swift in Sources */,
 				D22B24EC25D1D48900B4C744 /* AppDelegate.swift in Sources */,
+				D26BF20A260BDC6C00D4CFA8 /* CaptureDeviceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,20 +447,25 @@
 				D23CD20925FCD8D30082CE04 /* BoxFilter.swift in Sources */,
 				D22B250F25D1D4B000B4C744 /* Image.swift in Sources */,
 				D23CD20525FCCCB50082CE04 /* AccelerateDetectorV2.swift in Sources */,
+				D240FCBE260659CB008779DF /* NonMaxSuppression.swift in Sources */,
 				D2F47A2E25EC18D80019B944 /* TemporaryBuffer.swift in Sources */,
 				D26E0BE625E2BFFB00883294 /* NonMaxSuppressionStep.swift in Sources */,
 				D28BE5DF25E176980024969B /* GrayscaleConverterStep.swift in Sources */,
 				D29C61DD25EBA4EB00D94B0F /* VImageBufferWrapper.swift in Sources */,
 				D22B251225D1D4C000B4C744 /* CGDetector.swift in Sources */,
 				D23CD20125FCC9FE0082CE04 /* DetectorStrategy.swift in Sources */,
+				D203CA552607C47500AA0545 /* MetalDetector.swift in Sources */,
 				D2C2B61025DD9B4000485F07 /* AccelerateDetector.swift in Sources */,
 				D2C4BCBA25E16A7000F1EDEE /* Pipeline.swift in Sources */,
 				D2C4BCBD25E16A8600F1EDEE /* PipelineStep.swift in Sources */,
 				D23CD1FD25FCC8A80082CE04 /* CannyEdgeDetector.swift in Sources */,
 				D2C4BCC025E16AA400F1EDEE /* PipelineData.swift in Sources */,
 				D2F47A2A25EC11670019B944 /* GrayscaleConverter.swift in Sources */,
+				D203CA39260789FC00AA0545 /* Threshold.swift in Sources */,
 				D2C2B60A25DB0EFE00485F07 /* VIDetector.swift in Sources */,
+				D27878FC25FE9A530014BC01 /* Gradient.swift in Sources */,
 				D23CD20F25FE52860082CE04 /* CannyEdgeDetectorDelegate.swift in Sources */,
+				D26BF212260E2C0D00D4CFA8 /* Hypot.metal in Sources */,
 				D2C2B60D25DB0F1000485F07 /* Detector.swift in Sources */,
 				D26E0BDA25E1864100883294 /* BoxFilterStep.swift in Sources */,
 			);

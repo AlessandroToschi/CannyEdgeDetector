@@ -26,20 +26,25 @@ public class CannyEdgeDetector: NSObject, AVCaptureVideoDataOutputSampleBufferDe
         defer{
             CVPixelBufferUnlockBaseAddress(imageBuffer, .readOnly)
             let endTime = DispatchTime.now()
-            let elapsed = (endTime.uptimeNanoseconds - startTime.uptimeNanoseconds) / 1_000
-            print("Elapsed: \(elapsed) microseconds")
+            let elapsed = (endTime.uptimeNanoseconds - startTime.uptimeNanoseconds) / 1_000_000
+            print("Elapsed: \(elapsed) ms")
         }
         
         assert(CVPixelBufferIsPlanar(imageBuffer))
         assert(CVPixelBufferGetPlaneCount(imageBuffer) >= 2)
         
         guard let outputImage = try? self.strategy.detect(imageBuffer) else{
+            print("is nil")
             return
             
         }
         
         
         self.delegate?.ouputHandler(image: outputImage)
+    }
+    
+    public func captureOutput(_ output: AVCaptureOutput, didDrop sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        print("dropping")
     }
 
 }

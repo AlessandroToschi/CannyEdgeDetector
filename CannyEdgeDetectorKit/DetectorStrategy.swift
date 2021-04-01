@@ -13,11 +13,17 @@ import Accelerate
 public protocol DetectorStrategy{
     var outputFormat: vImage_CGImageFormat { get set }
     
+    func prepare(width: Int, height: Int)
+    
     func detect(_ imageBuffer: CVPixelBuffer) throws -> CGImage?
     func detect(_ image: CGImage) throws -> CGImage?
 }
 
 extension DetectorStrategy{
+    public func prepare(width: Int, height: Int){
+        
+    }
+    
     public func detect(_ imageBuffer: CVPixelBuffer) throws -> CGImage?{
         return nil
     }

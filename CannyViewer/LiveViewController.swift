@@ -30,6 +30,7 @@ class LiveViewController: NSViewController, CannyEdgeDetectorDelegate {
     var formats: [AVCaptureDevice.Format]!
     var controlsToToggle: [NSControl]!
     var timerConsumser: TimerConsumer!
+    var strategy: DetectorStrategy!
     var cannyEdgeDetector: CannyEdgeDetector!
     
     override func viewDidLoad() {
@@ -40,7 +41,8 @@ class LiveViewController: NSViewController, CannyEdgeDetectorDelegate {
         self.timerConsumser.liveView = self.liveView
         print(self.liveView.frame)
         
-        self.cannyEdgeDetector = CannyEdgeDetector(strategy: AccelerateDetectorV2())
+        self.strategy = MetalDetector()
+        self.cannyEdgeDetector = CannyEdgeDetector(strategy: self.strategy)
         self.cannyEdgeDetector.delegate = self
         
         self.discoverAvailableDevices()
@@ -76,25 +78,28 @@ class LiveViewController: NSViewController, CannyEdgeDetectorDelegate {
         let outputDevice = AVCaptureVideoDataOutput()
         outputDevice.alwaysDiscardsLateVideoFrames = false
         outputDevice.videoSettings = [String(kCVPixelBufferPixelFormatTypeKey): self.outputPixelFormat]
-        let queue = DispatchQueue(label: "time cos")
+        let queue = DispatchQueue(label: "aa")
         outputDevice.setSampleBufferDelegate(self.cannyEdgeDetector, queue: queue)
         
         if self.captureSession.canAddOutput(outputDevice){
             self.captureSession.addOutput(outputDevice)
         }
+        
+        self.strategy.prepare(width: Int(selectedDevice.activeFormat.formatDescription.dimensions.width), height: Int(selectedDevice.activeFormat.formatDescription.dimensions.height))
     }
     
     func checkForAutorization(){
         switch(AVCaptureDevice.authorizationStatus(for: AVMediaType.video)){
         case .authorized:
-            self.setupCaptureSession()
+            //self.setupCaptureSession()
+            break
         case .denied, .restricted:
             break
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: AVMediaType.video){
                 granted in
                 if granted{
-                    self.setupCaptureSession()
+                    //self.setupCaptureSession()
                 }
             }
         @unknown default:
